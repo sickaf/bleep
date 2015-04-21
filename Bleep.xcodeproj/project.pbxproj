@@ -14,6 +14,16 @@
 		7FB533061AE06AF600C4743A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB533051AE06AF600C4743A /* Images.xcassets */; };
 		7FB533091AE06AF600C4743A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB533071AE06AF600C4743A /* LaunchScreen.xib */; };
 		7FB533151AE06AF600C4743A /* BleepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB533141AE06AF600C4743A /* BleepTests.m */; };
+		7FB5331F1AE06E6400C4743A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB5331E1AE06E6400C4743A /* AssetsLibrary.framework */; };
+		7FB533211AE06E6A00C4743A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB533201AE06E6A00C4743A /* AVFoundation.framework */; };
+		7FB533231AE06E7200C4743A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB533221AE06E7200C4743A /* CoreMedia.framework */; };
+		7FB533251AE06E7700C4743A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB533241AE06E7700C4743A /* MediaPlayer.framework */; };
+		7FB533271AE06E7C00C4743A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB533261AE06E7C00C4743A /* MobileCoreServices.framework */; };
+		7FB533291AE06E8100C4743A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB533281AE06E8100C4743A /* QuartzCore.framework */; };
+		7FB5332D1AE071F500C4743A /* BLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5332C1AE071F500C4743A /* BLPlayerView.m */; };
+		7FB5333D1AE086FE00C4743A /* censor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FB5333C1AE086FE00C4743A /* censor.wav */; };
+		7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB533411AE1C9CD00C4743A /* BLBleep.m */; };
+		7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA383C1AE61F2A00274033 /* BLStartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +50,19 @@
 		7FB5330E1AE06AF600C4743A /* BleepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BleepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB533131AE06AF600C4743A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB533141AE06AF600C4743A /* BleepTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BleepTests.m; sourceTree = "<group>"; };
+		7FB5331E1AE06E6400C4743A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		7FB533201AE06E6A00C4743A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7FB533221AE06E7200C4743A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7FB533241AE06E7700C4743A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7FB533261AE06E7C00C4743A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7FB533281AE06E8100C4743A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FB5332B1AE071F500C4743A /* BLPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPlayerView.h; sourceTree = "<group>"; };
+		7FB5332C1AE071F500C4743A /* BLPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPlayerView.m; sourceTree = "<group>"; };
+		7FB5333C1AE086FE00C4743A /* censor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = censor.wav; sourceTree = "<group>"; };
+		7FB533401AE1C9CD00C4743A /* BLBleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBleep.h; sourceTree = "<group>"; };
+		7FB533411AE1C9CD00C4743A /* BLBleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBleep.m; sourceTree = "<group>"; };
+		7FFA383B1AE61F2A00274033 /* BLStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStartViewController.h; sourceTree = "<group>"; };
+		7FFA383C1AE61F2A00274033 /* BLStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +70,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB533291AE06E8100C4743A /* QuartzCore.framework in Frameworks */,
+				7FB533271AE06E7C00C4743A /* MobileCoreServices.framework in Frameworks */,
+				7FB533251AE06E7700C4743A /* MediaPlayer.framework in Frameworks */,
+				7FB533231AE06E7200C4743A /* CoreMedia.framework in Frameworks */,
+				7FB533211AE06E6A00C4743A /* AVFoundation.framework in Frameworks */,
+				7FB5331F1AE06E6400C4743A /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB532F71AE06AF600C4743A /* Bleep */,
+				7FB5332A1AE06E8E00C4743A /* Frameworks */,
 				7FB533111AE06AF600C4743A /* BleepTests */,
 				7FB532F61AE06AF600C4743A /* Products */,
 			);
@@ -81,10 +111,16 @@
 		7FB532F71AE06AF600C4743A /* Bleep */ = {
 			isa = PBXGroup;
 			children = (
+				7FB533401AE1C9CD00C4743A /* BLBleep.h */,
+				7FB533411AE1C9CD00C4743A /* BLBleep.m */,
+				7FB5332B1AE071F500C4743A /* BLPlayerView.h */,
+				7FB5332C1AE071F500C4743A /* BLPlayerView.m */,
 				7FB532FC1AE06AF600C4743A /* AppDelegate.h */,
 				7FB532FD1AE06AF600C4743A /* AppDelegate.m */,
 				7FB532FF1AE06AF600C4743A /* ViewController.h */,
 				7FB533001AE06AF600C4743A /* ViewController.m */,
+				7FFA383B1AE61F2A00274033 /* BLStartViewController.h */,
+				7FFA383C1AE61F2A00274033 /* BLStartViewController.m */,
 				7FB533021AE06AF600C4743A /* Main.storyboard */,
 				7FB533051AE06AF600C4743A /* Images.xcassets */,
 				7FB533071AE06AF600C4743A /* LaunchScreen.xib */,
@@ -96,6 +132,7 @@
 		7FB532F81AE06AF600C4743A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FB5333C1AE086FE00C4743A /* censor.wav */,
 				7FB532F91AE06AF600C4743A /* Info.plist */,
 				7FB532FA1AE06AF600C4743A /* main.m */,
 			);
@@ -117,6 +154,19 @@
 				7FB533131AE06AF600C4743A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FB5332A1AE06E8E00C4743A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FB533281AE06E8100C4743A /* QuartzCore.framework */,
+				7FB533261AE06E7C00C4743A /* MobileCoreServices.framework */,
+				7FB533241AE06E7700C4743A /* MediaPlayer.framework */,
+				7FB533221AE06E7200C4743A /* CoreMedia.framework */,
+				7FB533201AE06E6A00C4743A /* AVFoundation.framework */,
+				7FB5331E1AE06E6400C4743A /* AssetsLibrary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB5333D1AE086FE00C4743A /* censor.wav in Resources */,
 				7FB533041AE06AF600C4743A /* Main.storyboard in Resources */,
 				7FB533091AE06AF600C4743A /* LaunchScreen.xib in Resources */,
 				7FB533061AE06AF600C4743A /* Images.xcassets in Resources */,
@@ -222,6 +273,9 @@
 				7FB533011AE06AF600C4743A /* ViewController.m in Sources */,
 				7FB532FE1AE06AF600C4743A /* AppDelegate.m in Sources */,
 				7FB532FB1AE06AF600C4743A /* main.m in Sources */,
+				7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */,
+				7FB5332D1AE071F500C4743A /* BLPlayerView.m in Sources */,
+				7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bleep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bleep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +472,7 @@
 				7FB5331A1AE06AF600C4743A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FB5331B1AE06AF600C4743A /* Build configuration list for PBXNativeTarget "BleepTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +481,7 @@
 				7FB5331D1AE06AF600C4743A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

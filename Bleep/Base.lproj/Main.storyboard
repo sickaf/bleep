@@ -1,13 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y1H-9g-adL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Bleep-->
+        <scene sceneID="d2f-Dc-Hi9">
+            <objects>
+                <viewController id="3oC-9O-Xuj" customClass="BLStartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O1f-eS-BRg"/>
+                        <viewControllerLayoutGuide type="bottom" id="EoX-PQ-KFC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fkn-g8-P5y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-bd-qX0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CDr-bd-qX0" secondAttribute="height" multiplier="1:1" id="dnp-Xi-XDZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="w80-iw-ntl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dnp-Xi-XDZ"/>
+                                        <exclude reference="w80-iw-ntl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="dnp-Xi-XDZ"/>
+                                        <include reference="w80-iw-ntl"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="start:" destination="3oC-9O-Xuj" eventType="touchUpInside" id="dwf-8s-3Nx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="CDr-bd-qX0" secondAttribute="centerY" constant="27" id="5vD-xT-B1W"/>
+                            <constraint firstAttribute="centerX" secondItem="CDr-bd-qX0" secondAttribute="centerX" id="Oak-TC-fNC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CDr-bd-qX0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5vD-xT-B1W"/>
+                                <exclude reference="Oak-TC-fNC"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="CDr-bd-qX0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5vD-xT-B1W"/>
+                                <include reference="Oak-TC-fNC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bleep" id="As5-Xd-9Cv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8e-4M-88a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-484.5" y="406.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sep-Dh-0OC">
+            <objects>
+                <navigationController id="y1H-9g-adL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="tBM-M1-uTS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3oC-9O-Xuj" kind="relationship" relationship="rootViewController" id="YJx-9g-6YM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfK-dq-1SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1188" y="406.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +103,156 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDu-lB-6oL" customClass="BLPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KDu-lB-6oL" secondAttribute="height" multiplier="1:1" id="uOk-RY-bM2"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uOk-RY-bM2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="uOk-RY-bM2"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F40-Xa-UCY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bleep:" destination="vXZ-lx-hvc" eventType="touchDown" id="p9o-0S-qFJ"/>
+                                    <action selector="stopBleep:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iM5-jq-36q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSv-wg-ZFh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ozm-IM-xyU"/>
+                                    <constraint firstAttribute="height" constant="100" id="v6P-sn-VYh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ozm-IM-xyU"/>
+                                        <exclude reference="v6P-sn-VYh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ozm-IM-xyU"/>
+                                        <include reference="v6P-sn-VYh"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="save:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PBu-qR-k1R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the video whenever you'd like the bleep to play" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k05-HJ-SSu">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="KEx-d8-lVR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="KEx-d8-lVR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="KEx-d8-lVR"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="k05-HJ-SSu" secondAttribute="trailing" constant="68" id="5DQ-F9-3qw"/>
+                            <constraint firstItem="F40-Xa-UCY" firstAttribute="width" secondItem="KDu-lB-6oL" secondAttribute="width" id="A5o-b7-pUW"/>
+                            <constraint firstItem="KDu-lB-6oL" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="CI9-yX-S3C"/>
+                            <constraint firstItem="F40-Xa-UCY" firstAttribute="height" secondItem="KDu-lB-6oL" secondAttribute="height" id="EQE-tR-EkF"/>
+                            <constraint firstItem="k05-HJ-SSu" firstAttribute="centerX" secondItem="KDu-lB-6oL" secondAttribute="centerX" id="OF0-U5-r9M"/>
+                            <constraint firstItem="KDu-lB-6oL" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Qzf-ne-Dh9"/>
+                            <constraint firstItem="F40-Xa-UCY" firstAttribute="centerX" secondItem="KDu-lB-6oL" secondAttribute="centerX" id="TH8-yx-4bE"/>
+                            <constraint firstAttribute="centerX" secondItem="KDu-lB-6oL" secondAttribute="centerX" id="ZPK-Yv-cni"/>
+                            <constraint firstItem="tSv-wg-ZFh" firstAttribute="centerX" secondItem="F40-Xa-UCY" secondAttribute="centerX" id="ZeG-g1-HwR"/>
+                            <constraint firstItem="tSv-wg-ZFh" firstAttribute="top" secondItem="F40-Xa-UCY" secondAttribute="bottom" constant="8" id="dgR-Vk-ztx"/>
+                            <constraint firstItem="k05-HJ-SSu" firstAttribute="top" secondItem="KDu-lB-6oL" secondAttribute="bottom" constant="17" id="eJu-Px-vm8"/>
+                            <constraint firstItem="F40-Xa-UCY" firstAttribute="centerY" secondItem="KDu-lB-6oL" secondAttribute="centerY" id="uLF-8u-Sr0"/>
+                            <constraint firstItem="k05-HJ-SSu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="68" id="zwB-eb-a5m"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KDu-lB-6oL"/>
+                                <exclude reference="F40-Xa-UCY"/>
+                                <exclude reference="tSv-wg-ZFh"/>
+                                <exclude reference="k05-HJ-SSu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="A5o-b7-pUW"/>
+                                <exclude reference="EQE-tR-EkF"/>
+                                <exclude reference="TH8-yx-4bE"/>
+                                <exclude reference="uLF-8u-Sr0"/>
+                                <exclude reference="CI9-yX-S3C"/>
+                                <exclude reference="Qzf-ne-Dh9"/>
+                                <exclude reference="ZPK-Yv-cni"/>
+                                <exclude reference="5DQ-F9-3qw"/>
+                                <exclude reference="OF0-U5-r9M"/>
+                                <exclude reference="eJu-Px-vm8"/>
+                                <exclude reference="zwB-eb-a5m"/>
+                                <exclude reference="ZeG-g1-HwR"/>
+                                <exclude reference="dgR-Vk-ztx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KDu-lB-6oL"/>
+                                <include reference="F40-Xa-UCY"/>
+                                <include reference="tSv-wg-ZFh"/>
+                                <include reference="k05-HJ-SSu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="A5o-b7-pUW"/>
+                                <include reference="EQE-tR-EkF"/>
+                                <include reference="TH8-yx-4bE"/>
+                                <include reference="uLF-8u-Sr0"/>
+                                <include reference="CI9-yX-S3C"/>
+                                <include reference="Qzf-ne-Dh9"/>
+                                <include reference="ZPK-Yv-cni"/>
+                                <include reference="5DQ-F9-3qw"/>
+                                <include reference="OF0-U5-r9M"/>
+                                <include reference="eJu-Px-vm8"/>
+                                <include reference="zwB-eb-a5m"/>
+                                <include reference="ZeG-g1-HwR"/>
+                                <include reference="dgR-Vk-ztx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bleepButton" destination="F40-Xa-UCY" id="yd6-Fq-yQa"/>
+                        <outlet property="descriptionLabel" destination="k05-HJ-SSu" id="COq-hw-B76"/>
+                        <outlet property="saveButton" destination="tSv-wg-ZFh" id="4fP-gT-ObD"/>
+                        <outlet property="videoPlayerView" destination="KDu-lB-6oL" id="hop-Tn-Vli"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="265.5" y="406.5"/>
         </scene>
     </scenes>
 </document>
