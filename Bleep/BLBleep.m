@@ -16,4 +16,9 @@
     _duration = CMTimeSubtract(_end, _beginning);
 }
 
+- (NSURL *)fileURL
+{
+    return [[NSBundle mainBundle] URLForResource:_fileName withExtension:@"wav"];
+}
+
 @end

@@ -23,6 +23,7 @@
 		7FB5332D1AE071F500C4743A /* BLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5332C1AE071F500C4743A /* BLPlayerView.m */; };
 		7FB5333D1AE086FE00C4743A /* censor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FB5333C1AE086FE00C4743A /* censor.wav */; };
 		7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB533411AE1C9CD00C4743A /* BLBleep.m */; };
+		7FE297E11AE6E92D0072D558 /* BLMovieRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */; };
 		7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA383C1AE61F2A00274033 /* BLStartViewController.m */; };
 		C11ABF1E343EAAD95BBCF7EF /* libPods-Bleep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		7FB5333C1AE086FE00C4743A /* censor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = censor.wav; sourceTree = "<group>"; };
 		7FB533401AE1C9CD00C4743A /* BLBleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBleep.h; sourceTree = "<group>"; };
 		7FB533411AE1C9CD00C4743A /* BLBleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBleep.m; sourceTree = "<group>"; };
+		7FE297DF1AE6E92D0072D558 /* BLMovieRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMovieRenderer.h; sourceTree = "<group>"; };
+		7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMovieRenderer.m; sourceTree = "<group>"; };
 		7FFA383B1AE61F2A00274033 /* BLStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStartViewController.h; sourceTree = "<group>"; };
 		7FFA383C1AE61F2A00274033 /* BLStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStartViewController.m; sourceTree = "<group>"; };
 		ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +143,8 @@
 				7FB533051AE06AF600C4743A /* Images.xcassets */,
 				7FB533071AE06AF600C4743A /* LaunchScreen.xib */,
 				7FB532F81AE06AF600C4743A /* Supporting Files */,
+				7FE297DF1AE6E92D0072D558 /* BLMovieRenderer.h */,
+				7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */,
 			);
 			path = Bleep;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE297E11AE6E92D0072D558 /* BLMovieRenderer.m in Sources */,
 				7FB533011AE06AF600C4743A /* ViewController.m in Sources */,
 				7FB532FE1AE06AF600C4743A /* AppDelegate.m in Sources */,
 				7FB532FB1AE06AF600C4743A /* main.m in Sources */,

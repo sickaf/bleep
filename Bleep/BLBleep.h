@@ -14,5 +14,7 @@
 @property (nonatomic, assign) CMTime beginning;
 @property (nonatomic, assign) CMTime end;
 @property (nonatomic, assign) CMTime duration;
+@property (nonatomic, strong) NSString *fileName;
+@property (nonatomic, strong) NSURL *fileURL;
 
 @end
