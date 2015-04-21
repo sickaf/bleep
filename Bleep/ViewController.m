@@ -47,6 +47,13 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     [self syncUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.videoPlayer seekToTime:kCMTimeZero];
+}
+
 - (void)setupUI
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(play:)];
@@ -192,8 +199,9 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     if (!self.playbackMode) {
         [self constructCensoredVideo];
     }
-    
-    [self.videoPlayer seekToTime:kCMTimeZero];
+    else {
+        [self.videoPlayer seekToTime:kCMTimeZero];
+    }
 }
 
 - (void)constructCensoredVideo

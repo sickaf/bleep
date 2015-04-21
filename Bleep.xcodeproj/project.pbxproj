@@ -236,6 +236,7 @@
 				TargetAttributes = {
 					7FB532F41AE06AF600C4743A = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = BHK8BEX39K;
 					};
 					7FB5330D1AE06AF600C4743A = {
 						CreatedOnToolsVersion = 6.3;
@@ -453,6 +454,8 @@
 			baseConfigurationReference = 39D64200C02E941E05B45868 /* Pods-Bleep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Bleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -465,6 +468,8 @@
 			baseConfigurationReference = F34AA85484B4C6F7BD0F65F3 /* Pods-Bleep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = Bleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
