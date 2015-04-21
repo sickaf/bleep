@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FA70F453AE0465D672A0B72 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B238C62911E6D2C9F590A /* QuartzCore.framework */; };
+		46414A665B065E571E19B6E4 /* Pods-Bleep-SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE956D9CB82180C8CFA6337 /* Pods-Bleep-SVProgressHUD-dummy.m */; };
+		58004DA2806AAEB43FF808D0 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = B00AA9F7A77637DA49BA4261 /* SVIndefiniteAnimatedView.h */; };
+		5971DD962CE22E04BBB303F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6CE8F2D37D388D7BE3EAB0 /* Foundation.framework */; };
+		61F3A6C49FD6F604842842B4 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D21FCD79F64778B1F51D76 /* SVIndefiniteAnimatedView.m */; };
+		855A6B3567636ACD4C31A128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6CE8F2D37D388D7BE3EAB0 /* Foundation.framework */; };
+		8A1F9EDF2E5A6E49292EB3FD /* Pods-Bleep-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9B440F4528A01ECC0FD097 /* Pods-Bleep-dummy.m */; };
+		A25E044ABE8AF750F3A8873C /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = BCFCBDC76E980FAF107E1FC7 /* SVProgressHUD.h */; };
+		B9A7B84CD2AA049E2645D4F9 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BCA6B00A5A5A0FF47B6264 /* SVProgressHUD.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE1D32D5569C8B5E9067E35D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7B6B5959B8504D19CBC93FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3772F316C433792B5EBBAE49;
+			remoteInfo = "Pods-Bleep-SVProgressHUD";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D1836AB908B3DB634C5E05F /* Pods-Bleep-SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Bleep-SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		26BCA6B00A5A5A0FF47B6264 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		2C35D7EB979D3D6746859E85 /* libPods-Bleep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE956D9CB82180C8CFA6337 /* Pods-Bleep-SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Bleep-SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		32B6598AAF737570A320922F /* Pods-Bleep-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Bleep-resources.sh"; sourceTree = "<group>"; };
+		35E06E3B8D189CB67C89DE27 /* Pods-Bleep-SVProgressHUD-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bleep-SVProgressHUD-Private.xcconfig"; sourceTree = "<group>"; };
+		3A9B440F4528A01ECC0FD097 /* Pods-Bleep-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Bleep-dummy.m"; sourceTree = "<group>"; };
+		3E65DEDC36A913040C4540A1 /* Pods-Bleep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bleep.debug.xcconfig"; sourceTree = "<group>"; };
+		3F98B08A54D9D44DF1440331 /* Pods-Bleep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bleep.release.xcconfig"; sourceTree = "<group>"; };
+		4B6CE8F2D37D388D7BE3EAB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		53B1E5CFFA973D677217D1FA /* Pods-Bleep-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Bleep-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5F5DD443C30CF5D6F0E1DE8A /* libPods-Bleep-SVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep-SVProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91E9001DC19BA8F67E8DC355 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94D21FCD79F64778B1F51D76 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		B00AA9F7A77637DA49BA4261 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		B19B238C62911E6D2C9F590A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B554D6E08332407B33E003DF /* Pods-Bleep-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Bleep-acknowledgements.plist"; sourceTree = "<group>"; };
+		BCFCBDC76E980FAF107E1FC7 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		C3D0FEDD53ACFCD24F320491 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		CB340EDDA0518B0215D0BD69 /* Pods-Bleep-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Bleep-environment.h"; sourceTree = "<group>"; };
+		D7634EA01B257E9EB7AD9D7C /* Pods-Bleep-SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Bleep-SVProgressHUD.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D75BBDE963B690E38DC27792 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5971DD962CE22E04BBB303F6 /* Foundation.framework in Frameworks */,
+				2FA70F453AE0465D672A0B72 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A5D6733C2E86D814444294 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				855A6B3567636ACD4C31A128 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28A0C4BD0B4DB841A75D561C = {
+			isa = PBXGroup;
+			children = (
+				91E9001DC19BA8F67E8DC355 /* Podfile */,
+				DCB68B29C68B54828F46B550 /* Frameworks */,
+				9BEA005EA40379580F2F30E9 /* Pods */,
+				9276D347905682DA3ACEFDEA /* Products */,
+				76AF315DA87FE134ADDF98CD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		4B09FD8CBB30626AB672C470 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7634EA01B257E9EB7AD9D7C /* Pods-Bleep-SVProgressHUD.xcconfig */,
+				35E06E3B8D189CB67C89DE27 /* Pods-Bleep-SVProgressHUD-Private.xcconfig */,
+				2DE956D9CB82180C8CFA6337 /* Pods-Bleep-SVProgressHUD-dummy.m */,
+				1D1836AB908B3DB634C5E05F /* Pods-Bleep-SVProgressHUD-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Bleep-SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		76AF315DA87FE134ADDF98CD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E832B265D56FD638A627417E /* Pods-Bleep */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DCC20E40CF77D592E5CB43C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4B6CE8F2D37D388D7BE3EAB0 /* Foundation.framework */,
+				B19B238C62911E6D2C9F590A /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9276D347905682DA3ACEFDEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C35D7EB979D3D6746859E85 /* libPods-Bleep.a */,
+				5F5DD443C30CF5D6F0E1DE8A /* libPods-Bleep-SVProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BEA005EA40379580F2F30E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB6467E298B78F4E6526C3DA /* SVProgressHUD */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CCA323620A15A3D77AC209DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3D0FEDD53ACFCD24F320491 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DCB68B29C68B54828F46B550 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DCC20E40CF77D592E5CB43C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E832B265D56FD638A627417E /* Pods-Bleep */ = {
+			isa = PBXGroup;
+			children = (
+				53B1E5CFFA973D677217D1FA /* Pods-Bleep-acknowledgements.markdown */,
+				B554D6E08332407B33E003DF /* Pods-Bleep-acknowledgements.plist */,
+				3A9B440F4528A01ECC0FD097 /* Pods-Bleep-dummy.m */,
+				CB340EDDA0518B0215D0BD69 /* Pods-Bleep-environment.h */,
+				32B6598AAF737570A320922F /* Pods-Bleep-resources.sh */,
+				3E65DEDC36A913040C4540A1 /* Pods-Bleep.debug.xcconfig */,
+				3F98B08A54D9D44DF1440331 /* Pods-Bleep.release.xcconfig */,
+			);
+			name = "Pods-Bleep";
+			path = "Target Support Files/Pods-Bleep";
+			sourceTree = "<group>";
+		};
+		EB6467E298B78F4E6526C3DA /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B00AA9F7A77637DA49BA4261 /* SVIndefiniteAnimatedView.h */,
+				94D21FCD79F64778B1F51D76 /* SVIndefiniteAnimatedView.m */,
+				BCFCBDC76E980FAF107E1FC7 /* SVProgressHUD.h */,
+				26BCA6B00A5A5A0FF47B6264 /* SVProgressHUD.m */,
+				CCA323620A15A3D77AC209DE /* Resources */,
+				4B09FD8CBB30626AB672C470 /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A6C2341C20F85DDDB5DF51D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58004DA2806AAEB43FF808D0 /* SVIndefiniteAnimatedView.h in Headers */,
+				A25E044ABE8AF750F3A8873C /* SVProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3772F316C433792B5EBBAE49 /* Pods-Bleep-SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B07E8FF4E4D93F55DCE73079 /* Build configuration list for PBXNativeTarget "Pods-Bleep-SVProgressHUD" */;
+			buildPhases = (
+				9997CEFED3E8099BD80DFFEC /* Sources */,
+				D75BBDE963B690E38DC27792 /* Frameworks */,
+				6A6C2341C20F85DDDB5DF51D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Bleep-SVProgressHUD";
+			productName = "Pods-Bleep-SVProgressHUD";
+			productReference = 5F5DD443C30CF5D6F0E1DE8A /* libPods-Bleep-SVProgressHUD.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		51539634FFD0BE7D637C70B9 /* Pods-Bleep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E413CA9FB38D5594C9BFB833 /* Build configuration list for PBXNativeTarget "Pods-Bleep" */;
+			buildPhases = (
+				D993D23104571E88224B7023 /* Sources */,
+				F2A5D6733C2E86D814444294 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1879BA16A2EA3D19752462D2 /* PBXTargetDependency */,
+			);
+			name = "Pods-Bleep";
+			productName = "Pods-Bleep";
+			productReference = 2C35D7EB979D3D6746859E85 /* libPods-Bleep.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7B6B5959B8504D19CBC93FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = CD9543B856E22B853312A443 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 28A0C4BD0B4DB841A75D561C;
+			productRefGroup = 9276D347905682DA3ACEFDEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				51539634FFD0BE7D637C70B9 /* Pods-Bleep */,
+				3772F316C433792B5EBBAE49 /* Pods-Bleep-SVProgressHUD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9997CEFED3E8099BD80DFFEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46414A665B065E571E19B6E4 /* Pods-Bleep-SVProgressHUD-dummy.m in Sources */,
+				61F3A6C49FD6F604842842B4 /* SVIndefiniteAnimatedView.m in Sources */,
+				B9A7B84CD2AA049E2645D4F9 /* SVProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D993D23104571E88224B7023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A1F9EDF2E5A6E49292EB3FD /* Pods-Bleep-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1879BA16A2EA3D19752462D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Bleep-SVProgressHUD";
+			target = 3772F316C433792B5EBBAE49 /* Pods-Bleep-SVProgressHUD */;
+			targetProxy = CE1D32D5569C8B5E9067E35D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3EE23C64D3E559066E851CF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4F1582D3232D2B239642F87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35E06E3B8D189CB67C89DE27 /* Pods-Bleep-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Bleep-SVProgressHUD/Pods-Bleep-SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		69BAD3DB9C8F8475B9A3C30D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E65DEDC36A913040C4540A1 /* Pods-Bleep.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C0BC778246A98D3D6EA09E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6C3DA4DB4DA7D40D82FA130 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F98B08A54D9D44DF1440331 /* Pods-Bleep.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F128B03E0DAFE365C4C13914 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35E06E3B8D189CB67C89DE27 /* Pods-Bleep-SVProgressHUD-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Bleep-SVProgressHUD/Pods-Bleep-SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B07E8FF4E4D93F55DCE73079 /* Build configuration list for PBXNativeTarget "Pods-Bleep-SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F128B03E0DAFE365C4C13914 /* Debug */,
+				4F1582D3232D2B239642F87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD9543B856E22B853312A443 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EE23C64D3E559066E851CF7 /* Debug */,
+				C0BC778246A98D3D6EA09E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E413CA9FB38D5594C9BFB833 /* Build configuration list for PBXNativeTarget "Pods-Bleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69BAD3DB9C8F8475B9A3C30D /* Debug */,
+				E6C3DA4DB4DA7D40D82FA130 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E7B6B5959B8504D19CBC93FC /* Project object */;
+}

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "BLBleep.h"
+#import "SVProgressHUD.h"
 
 static const NSString *ItemStatusContext;
 
@@ -121,6 +122,9 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
                                                                            object:self.videoPlayerItem];
                                 self.videoPlayer = [AVPlayer playerWithPlayerItem:self.videoPlayerItem];
                                 [self.videoPlayerView setPlayer:self.videoPlayer];
+                                if (self.playbackMode) {
+                                    [self play:nil];
+                                }
                             }
                             else {
                                 // You should deal with the error appropriately.
@@ -188,9 +192,8 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     if (!self.playbackMode) {
         [self constructCensoredVideo];
     }
-    else {
-        [self.videoPlayer seekToTime:kCMTimeZero];
-    }
+    
+    [self.videoPlayer seekToTime:kCMTimeZero];
 }
 
 - (void)constructCensoredVideo
@@ -198,6 +201,8 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     if (self.videoPlayer.muted) {
         [self stopBleep:nil];
     }
+    
+    [SVProgressHUD showWithStatus:@"Loading..."];
     
     NSString *tracksKey = @"tracks";
     
@@ -258,6 +263,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
                                [export exportAsynchronouslyWithCompletionHandler:^{
                                    
                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                       [SVProgressHUD dismiss];
                                        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                                        ViewController *new = [mainSB instantiateViewControllerWithIdentifier:@"main"];
                                        new.assetURLToLoad = outputURL;

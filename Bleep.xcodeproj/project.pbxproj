@@ -24,6 +24,7 @@
 		7FB5333D1AE086FE00C4743A /* censor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FB5333C1AE086FE00C4743A /* censor.wav */; };
 		7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB533411AE1C9CD00C4743A /* BLBleep.m */; };
 		7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA383C1AE61F2A00274033 /* BLStartViewController.m */; };
+		C11ABF1E343EAAD95BBCF7EF /* libPods-Bleep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39D64200C02E941E05B45868 /* Pods-Bleep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bleep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bleep/Pods-Bleep.debug.xcconfig"; sourceTree = "<group>"; };
 		7FB532F51AE06AF600C4743A /* Bleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB532F91AE06AF600C4743A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB532FA1AE06AF600C4743A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		7FB533411AE1C9CD00C4743A /* BLBleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBleep.m; sourceTree = "<group>"; };
 		7FFA383B1AE61F2A00274033 /* BLStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStartViewController.h; sourceTree = "<group>"; };
 		7FFA383C1AE61F2A00274033 /* BLStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStartViewController.m; sourceTree = "<group>"; };
+		ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F34AA85484B4C6F7BD0F65F3 /* Pods-Bleep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bleep.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bleep/Pods-Bleep.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				7FB533231AE06E7200C4743A /* CoreMedia.framework in Frameworks */,
 				7FB533211AE06E6A00C4743A /* AVFoundation.framework in Frameworks */,
 				7FB5331F1AE06E6400C4743A /* AssetsLibrary.framework in Frameworks */,
+				C11ABF1E343EAAD95BBCF7EF /* libPods-Bleep.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DDF22E3BF8102445A5F36DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39D64200C02E941E05B45868 /* Pods-Bleep.debug.xcconfig */,
+				F34AA85484B4C6F7BD0F65F3 /* Pods-Bleep.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7FB532EC1AE06AF600C4743A = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +110,7 @@
 				7FB5332A1AE06E8E00C4743A /* Frameworks */,
 				7FB533111AE06AF600C4743A /* BleepTests */,
 				7FB532F61AE06AF600C4743A /* Products */,
+				3DDF22E3BF8102445A5F36DE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +180,7 @@
 				7FB533221AE06E7200C4743A /* CoreMedia.framework */,
 				7FB533201AE06E6A00C4743A /* AVFoundation.framework */,
 				7FB5331E1AE06E6400C4743A /* AssetsLibrary.framework */,
+				ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FB533181AE06AF600C4743A /* Build configuration list for PBXNativeTarget "Bleep" */;
 			buildPhases = (
+				54300103C946271D478BEDE7 /* Check Pods Manifest.lock */,
 				7FB532F11AE06AF600C4743A /* Sources */,
 				7FB532F21AE06AF600C4743A /* Frameworks */,
 				7FB532F31AE06AF600C4743A /* Resources */,
+				265F49D71AEB80024811F842 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +282,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		265F49D71AEB80024811F842 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bleep/Pods-Bleep-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54300103C946271D478BEDE7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FB532F11AE06AF600C4743A /* Sources */ = {
@@ -399,6 +450,7 @@
 		};
 		7FB533191AE06AF600C4743A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D64200C02E941E05B45868 /* Pods-Bleep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bleep/Info.plist;
@@ -410,6 +462,7 @@
 		};
 		7FB5331A1AE06AF600C4743A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F34AA85484B4C6F7BD0F65F3 /* Pods-Bleep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bleep/Info.plist;
