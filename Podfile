@@ -3,6 +3,7 @@
 
 target 'Bleep' do
 pod 'SVProgressHUD'
+pod 'InstagramAssetsPicker', :podspec => '/Users/CodyKo/Developer/InstagramAssetsPicker/InstagramAssetsPicker.podspec'
 end
 
 target 'BleepTests' do

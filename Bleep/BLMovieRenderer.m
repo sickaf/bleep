@@ -8,13 +8,19 @@
 
 #import "BLMovieRenderer.h"
 
+#define degreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
+#define kVideoWidth 640
+
 NSString *const tracksKey = @"tracks";
 NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 @interface BLMovieRenderer ()
 
 @property (nonatomic) AVURLAsset *censorSound;
+@property (nonatomic) AVAsset *videoAsset;
+
 @property (nonatomic) AVMutableAudioMix *audioMix;
+@property (nonatomic) AVMutableVideoComposition *videoComposition;
 
 @end
 
@@ -22,14 +28,15 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 - (void)renderVideoAsset:(AVAsset *)videoAsset bleepInfo:(NSArray *)bleeps completion:(void (^)(NSURL *assetURL))completionHandler
 {
-    
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    
         // Initialize bleep
         if (bleeps.count > 0) {
             AVURLAsset *soundAsset = [AVURLAsset URLAssetWithURL:[bleeps[0] fileURL] options:nil];
             self.censorSound = soundAsset;
         }
+        
+        self.videoAsset = videoAsset;
         
         [self.censorSound loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:^{
             
@@ -38,14 +45,12 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             AVMutableCompositionTrack *videoCompositionTrack = [mutableComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
             
             AVMutableCompositionTrack *audioCompositionTrack = [mutableComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+            
             AVMutableCompositionTrack *secondAudioCompositionTrack = [mutableComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
             
-            AVAssetTrack *firstVideoAssetTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+            AVAssetTrack *firstVideoAssetTrack = [[self.videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
             
-            AVAssetTrack *videoAudioTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-            
-            // rotate video
-            [videoCompositionTrack setPreferredTransform:firstVideoAssetTrack.preferredTransform];
+            AVAssetTrack *videoAudioTrack = [[self.videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
             
             // add video
             [videoCompositionTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, firstVideoAssetTrack.timeRange.duration) ofTrack:firstVideoAssetTrack atTime:kCMTimeZero error:nil];
@@ -71,16 +76,31 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             
             self.audioMix.inputParameters = @[volumeParam];
             
+            AVMutableVideoCompositionInstruction *mutableVideoCompositionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+            mutableVideoCompositionInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, firstVideoAssetTrack.timeRange.duration);
+            mutableVideoCompositionInstruction.backgroundColor = [[UIColor redColor] CGColor];
+            
+            AVMutableVideoCompositionLayerInstruction *passThroughLayer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoCompositionTrack];
+
+            mutableVideoCompositionInstruction.layerInstructions = @[passThroughLayer];
+            
+            self.videoComposition = [AVMutableVideoComposition videoComposition];
+            self.videoComposition.renderSize = CGSizeMake(640, 640);
+            self.videoComposition.frameDuration = CMTimeMake(1, 30);
+            self.videoComposition.instructions = @[mutableVideoCompositionInstruction];
+            
+            // create immutable copy of our composition
             AVComposition *immutableSnapshotOfMyComposition = [mutableComposition copy];
             
             // Export the composition to a file
             AVAssetExportSession *export = [AVAssetExportSession exportSessionWithAsset:immutableSnapshotOfMyComposition presetName:AVAssetExportPresetMediumQuality];
             
-            NSURL *outputURL = [NSURL fileURLWithPath:[[NSTemporaryDirectory() stringByAppendingPathComponent:[self randomStringWithLength:5]] stringByAppendingPathExtension:@"mov"]];
+            NSURL *outputURL = [NSURL fileURLWithPath:[[NSTemporaryDirectory() stringByAppendingPathComponent:[self randomStringWithLength:6]] stringByAppendingPathExtension:@"mp4"]];
             
             [export setOutputURL:outputURL];
-            [export setOutputFileType:AVFileTypeQuickTimeMovie];
             
+            [export setOutputFileType:AVFileTypeMPEG4];
+            export.shouldOptimizeForNetworkUse = YES;
             [export setAudioMix:self.audioMix];
             
             [export exportAsynchronouslyWithCompletionHandler:^{

@@ -104,8 +104,9 @@ static const NSString *ItemStatusContext;
 - (void)loadAsset:(AVAsset *)asset
 {
     NSString *tracksKey = @"tracks";
+    NSString *durationKey = @"duration";
     
-    [asset loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
+    [asset loadValuesAsynchronouslyForKeys:@[tracksKey, durationKey] completionHandler:
      ^{
          dispatch_async(dispatch_get_main_queue(),
                         ^{

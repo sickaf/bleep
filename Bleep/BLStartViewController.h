@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface BLStartViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+#import "IGAssetsPicker.h"
+
+@interface BLStartViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, IGAssetsPickerDelegate>
 
 @end

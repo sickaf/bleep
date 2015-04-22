@@ -8,6 +8,7 @@
 
 #import "BLStartViewController.h"
 #import "ViewController.h"
+#import "SVProgressHUD.h"
 
 @interface BLStartViewController ()
 
@@ -24,29 +25,29 @@
 
 - (IBAction)start:(id)sender
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.mediaTypes = @[(NSString *)kUTTypeMovie];
+    IGAssetsPickerViewController *picker = [[IGAssetsPickerViewController alloc] init];
     picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
 #pragma mark - Image Picker Delegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)assetsPickerBeganCropping:(id)picker
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:@"Cropping..."];
+    });
+}
+
+- (void)assetsPicker:(id)picker finishedCroppingWithAsset:(id)asset
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ViewController *vc = [sb instantiateViewControllerWithIdentifier:@"main"];
-    vc.assetURLToLoad = info[UIImagePickerControllerMediaURL];
+    vc.assetToLoad = asset;
     [picker dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD dismiss];
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 @end
