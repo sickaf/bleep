@@ -26,18 +26,13 @@ static const NSString *ItemStatusContext;
 {
     [super viewDidLoad];
     
-    [self setupUI];
-    
     if (!self.playbackMode) {
-        self.title = @"Bleep it";
         self.times = [NSMutableArray new];
         [self setupCensorPlayer];
-        self.saveButton.hidden = YES;
     }
     else {
         self.title = @"Save it";
         self.bleepButton.hidden = YES;
-        self.descriptionLabel.hidden = YES;
     }
     
     [self loadAppropriateAsset];
@@ -49,11 +44,8 @@ static const NSString *ItemStatusContext;
     [super viewWillAppear:animated];
     
     [self.videoPlayer seekToTime:kCMTimeZero];
-}
-
-- (void)setupUI
-{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(play:)];
+    [self syncUI];
+    self.topLabel.shouldColor = YES;
 }
 
 - (void)setupCensorPlayer
@@ -86,12 +78,23 @@ static const NSString *ItemStatusContext;
 {
     if ((self.videoPlayer.currentItem != nil) && ([self.videoPlayer.currentItem status] == AVPlayerItemStatusReadyToPlay)) {
         self.navigationItem.leftBarButtonItem.enabled = YES;
-        self.bleepButton.enabled = YES;
+        if (!self.playbackMode) {
+            self.bleepButton.enabled = YES;
+            self.playButton.hidden = NO;
+        }
+        else {
+            self.bleepButton.enabled = NO;
+            self.playButton.hidden = YES;
+        }
     }
     else {
         self.navigationItem.leftBarButtonItem.enabled = NO;
         self.bleepButton.enabled = NO;
+        self.playButton.hidden = YES;
     }
+    
+    self.saveButton.hidden = !self.playbackMode;
+    self.descriptionLabel.hidden = self.playbackMode;
 }
 
 - (void)loadAssetFromURL:(NSURL *)assetURL
@@ -103,10 +106,13 @@ static const NSString *ItemStatusContext;
 
 - (void)loadAsset:(AVAsset *)asset
 {
-    NSString *tracksKey = @"tracks";
-    NSString *durationKey = @"duration";
+    if (self.videoPlayerItem) {
+        [self.videoPlayerItem removeObserver:self forKeyPath:@"status" context:&ItemStatusContext];
+    }
     
-    [asset loadValuesAsynchronouslyForKeys:@[tracksKey, durationKey] completionHandler:
+    NSString *tracksKey = @"tracks";
+    
+    [asset loadValuesAsynchronouslyForKeys:@[tracksKey] completionHandler:
      ^{
          dispatch_async(dispatch_get_main_queue(),
                         ^{
@@ -139,9 +145,16 @@ static const NSString *ItemStatusContext;
 
 #pragma mark - Actions
 
-- (void)play:sender
+- (IBAction)play:(id)sender
 {
     [self.videoPlayer play];
+    
+    self.playButton.hidden = YES;
+}
+
+- (IBAction)back:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)bleep:(id)sender
@@ -152,6 +165,10 @@ static const NSString *ItemStatusContext;
     
     self.videoPlayer.muted = YES;
     [self.soundPlayer play];
+    
+    [(BLSiezureView *)self.view startAnimating];
+    [self.topLabel start];
+    [self.descriptionLabel start];
 }
 
 - (IBAction)stopBleep:(id)sender
@@ -161,6 +178,10 @@ static const NSString *ItemStatusContext;
     
     self.videoPlayer.muted = NO;
     [self.soundPlayer pause];
+    
+    [(BLSiezureView *)self.view stopAnimating];
+    [self.topLabel stop];
+    [self.descriptionLabel stop];
 }
 
 - (IBAction)save:(id)sender
@@ -169,6 +190,30 @@ static const NSString *ItemStatusContext;
     if ([assetsLibrary videoAtPathIsCompatibleWithSavedPhotosAlbum:self.assetURLToLoad]) {
         [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:self.assetURLToLoad completionBlock:NULL];
     }
+}
+
+- (IBAction)import:(id)sender
+{
+    IGAssetsPickerViewController *picker = [[IGAssetsPickerViewController alloc] init];
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+#pragma mark - Image Picker Delegate
+
+- (void)assetsPickerBeganCropping:(id)picker
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:@"Cropping..."];
+    });
+}
+
+- (void)assetsPicker:(id)picker finishedCroppingWithAsset:(id)asset
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD dismiss];
+        [self loadAsset:asset];
+    }];
 }
 
 #pragma mark - Notifications
@@ -196,6 +241,7 @@ static const NSString *ItemStatusContext;
     }
     else {
         [self.videoPlayer seekToTime:kCMTimeZero];
+        [self play:nil];
     }
 }
 

@@ -24,6 +24,10 @@
 		7FB5333D1AE086FE00C4743A /* censor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FB5333C1AE086FE00C4743A /* censor.wav */; };
 		7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB533411AE1C9CD00C4743A /* BLBleep.m */; };
 		7FE297E11AE6E92D0072D558 /* BLMovieRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */; };
+		7FF712A31AE9C86200B898B9 /* BLSiezureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712A21AE9C86200B898B9 /* BLSiezureView.m */; };
+		7FF712A61AE9CEFA00B898B9 /* BLSiezureLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712A51AE9CEFA00B898B9 /* BLSiezureLabel.m */; };
+		7FF712A81AF0601500B898B9 /* Moon-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF712A71AF0601500B898B9 /* Moon-Bold.otf */; };
+		7FF712AB1AF073D300B898B9 /* BLRedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712AA1AF073D300B898B9 /* BLRedButton.m */; };
 		7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA383C1AE61F2A00274033 /* BLStartViewController.m */; };
 		C11ABF1E343EAAD95BBCF7EF /* libPods-Bleep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */; };
 /* End PBXBuildFile section */
@@ -66,6 +70,13 @@
 		7FB533411AE1C9CD00C4743A /* BLBleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBleep.m; sourceTree = "<group>"; };
 		7FE297DF1AE6E92D0072D558 /* BLMovieRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMovieRenderer.h; sourceTree = "<group>"; };
 		7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMovieRenderer.m; sourceTree = "<group>"; };
+		7FF712A11AE9C86200B898B9 /* BLSiezureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSiezureView.h; sourceTree = "<group>"; };
+		7FF712A21AE9C86200B898B9 /* BLSiezureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSiezureView.m; sourceTree = "<group>"; };
+		7FF712A41AE9CEFA00B898B9 /* BLSiezureLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSiezureLabel.h; sourceTree = "<group>"; };
+		7FF712A51AE9CEFA00B898B9 /* BLSiezureLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSiezureLabel.m; sourceTree = "<group>"; };
+		7FF712A71AF0601500B898B9 /* Moon-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon-Bold.otf"; sourceTree = "<group>"; };
+		7FF712A91AF073D300B898B9 /* BLRedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLRedButton.h; sourceTree = "<group>"; };
+		7FF712AA1AF073D300B898B9 /* BLRedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLRedButton.m; sourceTree = "<group>"; };
 		7FFA383B1AE61F2A00274033 /* BLStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStartViewController.h; sourceTree = "<group>"; };
 		7FFA383C1AE61F2A00274033 /* BLStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStartViewController.m; sourceTree = "<group>"; };
 		ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +156,12 @@
 				7FB532F81AE06AF600C4743A /* Supporting Files */,
 				7FE297DF1AE6E92D0072D558 /* BLMovieRenderer.h */,
 				7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */,
+				7FF712A11AE9C86200B898B9 /* BLSiezureView.h */,
+				7FF712A21AE9C86200B898B9 /* BLSiezureView.m */,
+				7FF712A41AE9CEFA00B898B9 /* BLSiezureLabel.h */,
+				7FF712A51AE9CEFA00B898B9 /* BLSiezureLabel.m */,
+				7FF712A91AF073D300B898B9 /* BLRedButton.h */,
+				7FF712AA1AF073D300B898B9 /* BLRedButton.m */,
 			);
 			path = Bleep;
 			sourceTree = "<group>";
@@ -152,6 +169,7 @@
 		7FB532F81AE06AF600C4743A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FF712A71AF0601500B898B9 /* Moon-Bold.otf */,
 				7FB5333C1AE086FE00C4743A /* censor.wav */,
 				7FB532F91AE06AF600C4743A /* Info.plist */,
 				7FB532FA1AE06AF600C4743A /* main.m */,
@@ -274,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB5333D1AE086FE00C4743A /* censor.wav in Resources */,
+				7FF712A81AF0601500B898B9 /* Moon-Bold.otf in Resources */,
 				7FB533041AE06AF600C4743A /* Main.storyboard in Resources */,
 				7FB533091AE06AF600C4743A /* LaunchScreen.xib in Resources */,
 				7FB533061AE06AF600C4743A /* Images.xcassets in Resources */,
@@ -329,8 +348,11 @@
 			files = (
 				7FE297E11AE6E92D0072D558 /* BLMovieRenderer.m in Sources */,
 				7FB533011AE06AF600C4743A /* ViewController.m in Sources */,
+				7FF712A31AE9C86200B898B9 /* BLSiezureView.m in Sources */,
+				7FF712AB1AF073D300B898B9 /* BLRedButton.m in Sources */,
 				7FB532FE1AE06AF600C4743A /* AppDelegate.m in Sources */,
 				7FB532FB1AE06AF600C4743A /* main.m in Sources */,
+				7FF712A61AE9CEFA00B898B9 /* BLSiezureLabel.m in Sources */,
 				7FB533421AE1C9CD00C4743A /* BLBleep.m in Sources */,
 				7FB5332D1AE071F500C4743A /* BLPlayerView.m in Sources */,
 				7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */,

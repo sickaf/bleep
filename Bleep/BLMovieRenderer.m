@@ -26,6 +26,15 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 @implementation BLMovieRenderer
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.hasWatermark = YES;
+    }
+    return self;
+}
+
 - (void)renderVideoAsset:(AVAsset *)videoAsset bleepInfo:(NSArray *)bleeps completion:(void (^)(NSURL *assetURL))completionHandler
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -85,23 +94,56 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             mutableVideoCompositionInstruction.layerInstructions = @[passThroughLayer];
             
             self.videoComposition = [AVMutableVideoComposition videoComposition];
-            self.videoComposition.renderSize = CGSizeMake(640, 640);
+            self.videoComposition.renderSize = CGSizeMake(firstVideoAssetTrack.naturalSize.width, firstVideoAssetTrack.naturalSize.height);
             self.videoComposition.frameDuration = CMTimeMake(1, 30);
             self.videoComposition.instructions = @[mutableVideoCompositionInstruction];
             
-            // create immutable copy of our composition
+            // watermark
+            UIImage *myImage = [UIImage imageNamed:@"logo"];
+            CALayer *aLayer = [CALayer layer];
+            aLayer.contents = (id)myImage.CGImage;
+            aLayer.frame = CGRectMake(0, 0, 318, 54);
+            aLayer.opacity = 1.0;
+            
+            CALayer *watermarkLayer = aLayer;
+            CALayer *parentLayer = [CALayer layer];
+            CALayer *videoLayer = [CALayer layer];
+            parentLayer.frame = CGRectMake(0, 0, self.videoComposition.renderSize.width, self.videoComposition.renderSize.height);
+            videoLayer.frame = CGRectMake(0, 0, self.videoComposition.renderSize.width, self.videoComposition.renderSize.height);
+            [parentLayer addSublayer:videoLayer];
+            watermarkLayer.position = CGPointMake(200, 70);
+            [parentLayer addSublayer:watermarkLayer];
+            self.videoComposition.animationTool = [AVVideoCompositionCoreAnimationTool videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
+            
+            // Create immutable copy of our composition
             AVComposition *immutableSnapshotOfMyComposition = [mutableComposition copy];
             
             // Export the composition to a file
             AVAssetExportSession *export = [AVAssetExportSession exportSessionWithAsset:immutableSnapshotOfMyComposition presetName:AVAssetExportPresetMediumQuality];
             
-            NSURL *outputURL = [NSURL fileURLWithPath:[[NSTemporaryDirectory() stringByAppendingPathComponent:[self randomStringWithLength:6]] stringByAppendingPathExtension:@"mp4"]];
+            NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"rendered"] stringByAppendingPathExtension:@"mp4"];
+            
+            // Delete old file
+            NSError *error;
+            if ([[NSFileManager defaultManager] isDeletableFileAtPath:filePath]) {
+                BOOL success = [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+                if (!success) {
+                    NSLog(@"Error removing file at path: %@", error.localizedDescription);
+                }
+            }
+            
+            NSURL *outputURL = [NSURL fileURLWithPath:filePath];
             
             [export setOutputURL:outputURL];
             
             [export setOutputFileType:AVFileTypeMPEG4];
             export.shouldOptimizeForNetworkUse = YES;
             [export setAudioMix:self.audioMix];
+            
+            // add video composition if need be
+            if (self.hasWatermark) {
+                [export setVideoComposition:self.videoComposition];
+            }
             
             [export exportAsynchronouslyWithCompletionHandler:^{
                 

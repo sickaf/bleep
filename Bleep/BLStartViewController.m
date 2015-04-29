@@ -30,24 +30,23 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-#pragma mark - Image Picker Delegate
-
-- (void)assetsPickerBeganCropping:(id)picker
+- (IBAction)info:(id)sender
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [SVProgressHUD showWithStatus:@"Cropping..."];
-    });
+    
 }
+
+#pragma mark - Image Picker Delegate
 
 - (void)assetsPicker:(id)picker finishedCroppingWithAsset:(id)asset
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ViewController *vc = [sb instantiateViewControllerWithIdentifier:@"main"];
     vc.assetToLoad = asset;
-    [picker dismissViewControllerAnimated:YES completion:^{
-        [SVProgressHUD dismiss];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [picker dismissViewControllerAnimated:YES completion:nil];
         [self.navigationController pushViewController:vc animated:YES];
-    }];
+    });
 }
 
 @end

@@ -14,6 +14,8 @@
 
 @interface BLMovieRenderer : NSObject
 
+@property (nonatomic, assign) BOOL hasWatermark;
+
 - (void)renderVideoAsset:(AVAsset *)videoAsset bleepInfo:(NSArray *)bleeps completion:(void (^)(NSURL *assetURL))completionHandler;
 
 @end

@@ -11,15 +11,21 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "BLPlayerView.h"
+#import "IGAssetsPicker.h"
+#import "BLSiezureView.h"
+#import "BLSiezureLabel.h"
+#import "BLRedButton.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <IGAssetsPickerDelegate>
 
 @property (nonatomic) AVPlayer *videoPlayer;
 @property (nonatomic) AVPlayerItem *videoPlayerItem;
 @property (nonatomic, weak) IBOutlet BLPlayerView *videoPlayerView;
 @property (weak, nonatomic) IBOutlet UIButton *bleepButton;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet BLSiezureLabel *topLabel;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet BLSiezureLabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet BLRedButton *saveButton;
 
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 
