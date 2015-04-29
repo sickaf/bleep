@@ -43,9 +43,9 @@ static const NSString *ItemStatusContext;
 {
     [super viewWillAppear:animated];
     
-    [self.videoPlayer seekToTime:kCMTimeZero];
-    [self syncUI];
     self.topLabel.shouldColor = YES;
+    
+    [self reset];
 }
 
 - (void)setupCensorPlayer
@@ -143,6 +143,45 @@ static const NSString *ItemStatusContext;
      }];
 }
 
+- (void)constructCensoredVideo
+{
+    if (self.videoPlayer.muted) {
+        [self stopBleep:nil];
+    }
+    
+    if (self.times.count <= 0) {
+        [self showNoBleepAlert];
+        [self reset];
+        return;
+    }
+    
+    [SVProgressHUD showWithStatus:@"Loading..."];
+    
+    BLMovieRenderer *movieRenderer = [BLMovieRenderer new];
+    [movieRenderer renderVideoAsset:self.videoPlayerItem.asset bleepInfo:[self.times mutableCopy] completion:^(NSURL *assetURL) {
+        [SVProgressHUD dismiss];
+        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ViewController *new = [mainSB instantiateViewControllerWithIdentifier:@"main"];
+        new.assetURLToLoad = assetURL;
+        new.playbackMode = YES;
+        [self.navigationController pushViewController:new animated:YES];
+        
+        [self.times removeAllObjects];
+    }];
+}
+
+- (void)showNoBleepAlert
+{
+    UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"No Bleeps" message:@"You forgot to bleep your vid. Touch your finger down on the video when you want a bleep to play." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [al show];
+}
+
+- (void)reset
+{
+    [self.videoPlayer seekToTime:kCMTimeZero];
+    [self syncUI];
+}
+
 #pragma mark - Actions
 
 - (IBAction)play:(id)sender
@@ -224,27 +263,6 @@ static const NSString *ItemStatusContext;
         [self.videoPlayer seekToTime:kCMTimeZero];
         [self play:nil];
     }
-}
-
-- (void)constructCensoredVideo
-{
-    if (self.videoPlayer.muted) {
-        [self stopBleep:nil];
-    }
-    
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    
-    BLMovieRenderer *movieRenderer = [BLMovieRenderer new];
-    [movieRenderer renderVideoAsset:self.videoPlayerItem.asset bleepInfo:[self.times mutableCopy] completion:^(NSURL *assetURL) {
-        [SVProgressHUD dismiss];
-        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        ViewController *new = [mainSB instantiateViewControllerWithIdentifier:@"main"];
-        new.assetURLToLoad = assetURL;
-        new.playbackMode = YES;
-        [self.navigationController pushViewController:new animated:YES];
-        
-        [self.times removeAllObjects];
-    }];
 }
 
 @end
