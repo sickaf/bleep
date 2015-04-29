@@ -11,12 +11,11 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "BLPlayerView.h"
-#import "IGAssetsPicker.h"
 #import "BLSiezureView.h"
 #import "BLSiezureLabel.h"
 #import "BLRedButton.h"
 
-@interface ViewController : UIViewController <IGAssetsPickerDelegate>
+@interface ViewController : UIViewController
 
 @property (nonatomic) AVPlayer *videoPlayer;
 @property (nonatomic) AVPlayerItem *videoPlayerItem;

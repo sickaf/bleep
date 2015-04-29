@@ -186,34 +186,15 @@ static const NSString *ItemStatusContext;
 
 - (IBAction)save:(id)sender
 {
+    [SVProgressHUD showWithStatus:@"Saving..."];
     ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
     if ([assetsLibrary videoAtPathIsCompatibleWithSavedPhotosAlbum:self.assetURLToLoad]) {
-        [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:self.assetURLToLoad completionBlock:NULL];
+        [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:self.assetURLToLoad completionBlock:^(NSURL *assetURL, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD showSuccessWithStatus:@"Saved!"];
+            });
+        }];
     }
-}
-
-- (IBAction)import:(id)sender
-{
-    IGAssetsPickerViewController *picker = [[IGAssetsPickerViewController alloc] init];
-    picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:NULL];
-}
-
-#pragma mark - Image Picker Delegate
-
-- (void)assetsPickerBeganCropping:(id)picker
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [SVProgressHUD showWithStatus:@"Cropping..."];
-    });
-}
-
-- (void)assetsPicker:(id)picker finishedCroppingWithAsset:(id)asset
-{
-    [picker dismissViewControllerAnimated:YES completion:^{
-        [SVProgressHUD dismiss];
-        [self loadAsset:asset];
-    }];
 }
 
 #pragma mark - Notifications
