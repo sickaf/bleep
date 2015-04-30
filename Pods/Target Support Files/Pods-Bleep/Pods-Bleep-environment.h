@@ -6,18 +6,6 @@
 // project.
 
 
-// GPUImage
-#define COCOAPODS_POD_AVAILABLE_GPUImage
-#define COCOAPODS_VERSION_MAJOR_GPUImage 0
-#define COCOAPODS_VERSION_MINOR_GPUImage 1
-#define COCOAPODS_VERSION_PATCH_GPUImage 6
-
-// InstagramAssetsPicker
-#define COCOAPODS_POD_AVAILABLE_InstagramAssetsPicker
-#define COCOAPODS_VERSION_MAJOR_InstagramAssetsPicker 0
-#define COCOAPODS_VERSION_MINOR_InstagramAssetsPicker 1
-#define COCOAPODS_VERSION_PATCH_InstagramAssetsPicker 3
-
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1

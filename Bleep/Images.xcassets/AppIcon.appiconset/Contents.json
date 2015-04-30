@@ -23,13 +23,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "megahalf.png",
+      "filename" : "tempiconhalf.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "mega.png",
+      "filename" : "tempIcon.png",
       "scale" : "3x"
     }
   ],

@@ -102,7 +102,7 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             UIImage *myImage = [UIImage imageNamed:@"logo"];
             CALayer *aLayer = [CALayer layer];
             aLayer.contents = (id)myImage.CGImage;
-            aLayer.frame = CGRectMake(0, 0, 318, 54);
+            aLayer.frame = CGRectMake(0, 0, self.videoComposition.renderSize.width / 4, self.videoComposition.renderSize.width / 4 * 0.17);
             aLayer.opacity = 1.0;
             
             CALayer *watermarkLayer = aLayer;
@@ -111,15 +111,16 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             parentLayer.frame = CGRectMake(0, 0, self.videoComposition.renderSize.width, self.videoComposition.renderSize.height);
             videoLayer.frame = CGRectMake(0, 0, self.videoComposition.renderSize.width, self.videoComposition.renderSize.height);
             [parentLayer addSublayer:videoLayer];
-            watermarkLayer.position = CGPointMake(200, 70);
+            watermarkLayer.position = CGPointMake(self.videoComposition.renderSize.width/6, self.videoComposition.renderSize.height/16);
             [parentLayer addSublayer:watermarkLayer];
+            NSLog(@"%@",NSStringFromCGPoint(watermarkLayer.position));
             self.videoComposition.animationTool = [AVVideoCompositionCoreAnimationTool videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
             
             // Create immutable copy of our composition
             AVComposition *immutableSnapshotOfMyComposition = [mutableComposition copy];
             
             // Export the composition to a file
-            AVAssetExportSession *export = [AVAssetExportSession exportSessionWithAsset:immutableSnapshotOfMyComposition presetName:AVAssetExportPresetMediumQuality];
+            AVAssetExportSession *export = [AVAssetExportSession exportSessionWithAsset:immutableSnapshotOfMyComposition presetName:AVAssetExportPresetHighestQuality];
             
             NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"rendered"] stringByAppendingPathExtension:@"mp4"];
             
