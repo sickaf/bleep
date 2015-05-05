@@ -30,7 +30,6 @@
 		7FE14D751AF88B0F00171972 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE14D741AF88B0F00171972 /* SystemConfiguration.framework */; };
 		7FE14D771AF88B1800171972 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE14D761AF88B1800171972 /* Security.framework */; };
 		7FE14D791AF88B2000171972 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE14D781AF88B2000171972 /* libz.dylib */; };
-		7FE14D7B1AF88B2700171972 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE14D7A1AF88B2700171972 /* AdSupport.framework */; };
 		7FE14D7D1AF88B2E00171972 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE14D7C1AF88B2E00171972 /* iAd.framework */; };
 		7FE297E11AE6E92D0072D558 /* BLMovieRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE297E01AE6E92D0072D558 /* BLMovieRenderer.m */; };
 		7FF712A31AE9C86200B898B9 /* BLSiezureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712A21AE9C86200B898B9 /* BLSiezureView.m */; };
@@ -118,7 +117,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE14D7D1AF88B2E00171972 /* iAd.framework in Frameworks */,
-				7FE14D7B1AF88B2700171972 /* AdSupport.framework in Frameworks */,
 				7FE14D791AF88B2000171972 /* libz.dylib in Frameworks */,
 				7FE14D771AF88B1800171972 /* Security.framework in Frameworks */,
 				7FE14D751AF88B0F00171972 /* SystemConfiguration.framework in Frameworks */,
