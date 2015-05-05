@@ -43,7 +43,10 @@ static const NSString *ItemStatusContext;
     
     [self loadAppropriateAsset];
     [self syncUI];
-    [self setupNotifications];
+    
+    if (self.playbackMode) {
+        [self setupNotifications];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,11 +56,6 @@ static const NSString *ItemStatusContext;
     self.topLabel.shouldColor = YES;
     
     [self reset];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (void)viewDidLayoutSubviews
@@ -117,14 +115,26 @@ static const NSString *ItemStatusContext;
                                                           [SVProgressHUD dismiss];
                                                       });
                                                   }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitRestoringPurchasesFailedNotification
+                                                      object:nil
+                                                       queue:[[NSOperationQueue alloc] init]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [SVProgressHUD showErrorWithStatus:@"Failed"];
+                                                      });
+                                                  }];
 }
 
 - (void)dealloc
 {
     [self.videoPlayerItem removeObserver:self forKeyPath:@"status" context:&ItemStatusContext];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchasedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseFailedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseDeferredNotification object:nil];
+
+    if (self.playbackMode) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchasedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseFailedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseDeferredNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitRestoringPurchasesFailedNotification object:nil];
+    }
 }
 
 #pragma mark - Methods
@@ -150,17 +160,24 @@ static const NSString *ItemStatusContext;
     
     self.bottomView.hidden = !self.playbackMode;
     self.descriptionLabel.hidden = self.playbackMode;
+    self.restoreButton.hidden = !self.playbackMode || [self hasRemovedWatermark];
 }
 
 - (void)syncBottomConstraints
 {
-    if ([[MKStoreKit sharedKit] isProductPurchased:@"com.sick.af.removewatermark"]) {
+    if ([self hasRemovedWatermark]) {
         self.watermarkButton.hidden = YES;
+        self.restoreButton.hidden = YES;
         [self.bottomView removeConstraint:self.bottomSpaceConstraint];
         NSLayoutConstraint *newC = [NSLayoutConstraint constraintWithItem:self.bottomView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.saveButton attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
         [self.bottomView addConstraint:newC];
         [self.bottomView layoutIfNeeded];
     }
+}
+
+- (BOOL)hasRemovedWatermark
+{
+    return [[MKStoreKit sharedKit] isProductPurchased:@"com.sick.af.removewatermark"];
 }
 
 - (void)loadAssetFromURL:(NSURL *)assetURL
@@ -224,7 +241,7 @@ static const NSString *ItemStatusContext;
     [SVProgressHUD showWithStatus:@"Loading..."];
     
     BLMovieRenderer *movieRenderer = [BLMovieRenderer new];
-    if ([[MKStoreKit sharedKit] isProductPurchased:@"com.sick.af.removewatermark"]) {
+    if ([self hasRemovedWatermark]) {
         movieRenderer.hasWatermark = NO;
     }
     
@@ -320,6 +337,13 @@ static const NSString *ItemStatusContext;
     [SVProgressHUD showWithStatus:@"Removing..."];
     
     [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:@"com.sick.af.removewatermark"];
+}
+
+- (IBAction)restore:(id)sender
+{
+    [SVProgressHUD showWithStatus:@"Restoring..."];
+    
+    [[MKStoreKit sharedKit] restorePurchases];
 }
 
 #pragma mark - Notifications
