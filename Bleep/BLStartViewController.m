@@ -9,6 +9,7 @@
 #import "BLStartViewController.h"
 #import "ViewController.h"
 #import "SVProgressHUD.h"
+#import "Apsalar.h"
 
 @interface BLStartViewController () {
     AVAssetExportSession *exporter;
@@ -153,9 +154,11 @@
     
     if (buttonIndex == 0) {
         controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [Apsalar event:@"picker-camera"];
     }
     else if (buttonIndex == 1) {
         controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [Apsalar event:@"picker-library"];
     }
     
     [self presentViewController:controller animated:YES completion:nil];

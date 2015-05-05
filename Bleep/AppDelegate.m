@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MKStoreKit.h"
 
+#import <Crashlytics/Crashlytics.h>
+#import "Apsalar.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,6 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[MKStoreKit sharedKit] startProductRequest];
+    
+    [Crashlytics startWithAPIKey:@"7ce2c109a52bd76cf97eacb387877d4289329a2d"];
+    
+    [Apsalar startSession:@"sickaf" withKey:@"JOrEiHc9"];
     
     return YES;
 }

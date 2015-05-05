@@ -10,6 +10,7 @@
 #import "BLBleep.h"
 #import "SVProgressHUD.h"
 #import "BLMovieRenderer.h"
+#import "Apsalar.h"
 
 static const NSString *ItemStatusContext;
 
@@ -264,6 +265,7 @@ static const NSString *ItemStatusContext;
             new.times = [strongSelf.times copy];
             [strongSelf.navigationController pushViewController:new animated:YES];
             [strongSelf.times removeAllObjects];
+            [Apsalar event:@"video-created"];
         }
     }];
 }
@@ -324,6 +326,8 @@ static const NSString *ItemStatusContext;
 
 - (IBAction)save:(id)sender
 {
+    [Apsalar event:@"save-pressed"];
+
     [SVProgressHUD showWithStatus:@"Saving..."];
     ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
     if ([assetsLibrary videoAtPathIsCompatibleWithSavedPhotosAlbum:self.assetURLToLoad]) {
@@ -351,6 +355,8 @@ static const NSString *ItemStatusContext;
 
 - (IBAction)shuffle:(id)sender
 {
+    [Apsalar event:@"shuffle-pressed"];
+    
     while (self.times.count <= 0) {
         
         BLBleep *currentBleep;
