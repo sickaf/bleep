@@ -34,10 +34,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    AVAsset *asset = [AVAsset assetWithURL:info[UIImagePickerControllerMediaURL]];
+    
     [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD showWithStatus:@"Cropping..."];
-    [self cropVideoSquare:info[UIImagePickerControllerMediaURL] completion:^(NSURL *assetURL) {
+    [self cropVideoSquare:asset completion:^(NSURL *assetURL) {
         
         AVURLAsset* asset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -48,12 +51,9 @@
     }];
 }
 
-- (void)cropVideoSquare:(NSURL *)mediaURL completion:(void (^)(NSURL *assetURL))completionHandler
+- (void)cropVideoSquare:(AVAsset *)asset completion:(void (^)(NSURL *assetURL))completionHandler
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        //load our movie Asset
-        AVAsset *asset = [AVAsset assetWithURL:mediaURL];
         
         //create an avassetrack with our asset
         AVAssetTrack *clipVideoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];

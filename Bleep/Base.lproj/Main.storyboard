@@ -381,7 +381,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-hS-Bym">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-hS-Bym" userLabel="Back">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="IC0-2U-vT3"/>
@@ -434,9 +434,35 @@
                                             <action selector="restore:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ome-7f-bbz"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9G-24-DY8" userLabel="Shuffle">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="1lo-h9-sWJ"/>
+                                            <constraint firstAttribute="height" constant="44" id="uwd-gp-dUm"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="shuffle">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1lo-h9-sWJ"/>
+                                                <exclude reference="uwd-gp-dUm"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="1lo-h9-sWJ"/>
+                                                <include reference="uwd-gp-dUm"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="shuffle:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nvp-0I-hF1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="U9G-24-DY8" secondAttribute="trailing" constant="8" id="2QN-Dy-gPu"/>
                                     <constraint firstAttribute="centerX" secondItem="uPd-iJ-V5W" secondAttribute="centerX" constant="0.5" id="2tC-gg-ige">
                                         <variation key="heightClass=regular-widthClass=compact" constant="-0.5"/>
                                     </constraint>
@@ -446,6 +472,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.5"/>
                                     </constraint>
                                     <constraint firstItem="5wf-hS-Bym" firstAttribute="leading" secondItem="a9m-Ma-yYf" secondAttribute="leading" constant="8" id="hga-qM-zI0"/>
+                                    <constraint firstAttribute="centerY" secondItem="U9G-24-DY8" secondAttribute="centerY" id="pZF-3A-zlN"/>
                                     <constraint firstItem="5wf-hS-Bym" firstAttribute="centerY" secondItem="uPd-iJ-V5W" secondAttribute="centerY" constant="-0.5" id="wEj-WY-VOk">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.5"/>
                                     </constraint>
@@ -455,6 +482,7 @@
                                         <exclude reference="uPd-iJ-V5W"/>
                                         <exclude reference="5wf-hS-Bym"/>
                                         <exclude reference="Qst-Bj-fW9"/>
+                                        <exclude reference="U9G-24-DY8"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="hga-qM-zI0"/>
@@ -463,6 +491,8 @@
                                         <exclude reference="cec-Pn-F6a"/>
                                         <exclude reference="6bS-zh-Jvq"/>
                                         <exclude reference="VBf-Jv-GeA"/>
+                                        <exclude reference="2QN-Dy-gPu"/>
+                                        <exclude reference="pZF-3A-zlN"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -470,6 +500,7 @@
                                         <include reference="uPd-iJ-V5W"/>
                                         <include reference="5wf-hS-Bym"/>
                                         <include reference="Qst-Bj-fW9"/>
+                                        <include reference="U9G-24-DY8"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="hga-qM-zI0"/>
@@ -478,6 +509,8 @@
                                         <include reference="cec-Pn-F6a"/>
                                         <include reference="6bS-zh-Jvq"/>
                                         <include reference="VBf-Jv-GeA"/>
+                                        <include reference="2QN-Dy-gPu"/>
+                                        <include reference="pZF-3A-zlN"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -757,6 +790,7 @@
                         <outlet property="playButton" destination="QCO-ku-A0y" id="gMd-EJ-ecS"/>
                         <outlet property="restoreButton" destination="Qst-Bj-fW9" id="Bqa-7T-9x4"/>
                         <outlet property="saveButton" destination="GVE-Bp-alY" id="GDD-Ky-GQ3"/>
+                        <outlet property="shuffleButton" destination="U9G-24-DY8" id="53h-HL-82l"/>
                         <outlet property="topLabel" destination="uPd-iJ-V5W" id="LVA-Kr-5Nr"/>
                         <outlet property="videoPlayerView" destination="KDu-lB-6oL" id="hop-Tn-Vli"/>
                         <outlet property="watermarkButton" destination="u3q-NC-u6p" id="eve-hT-8fg"/>
@@ -772,5 +806,6 @@
         <image name="icon-back" width="18" height="17"/>
         <image name="icon-back-pressed" width="18" height="17"/>
         <image name="icon-play" width="12" height="17"/>
+        <image name="shuffle" width="44" height="44"/>
     </resources>
 </document>

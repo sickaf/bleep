@@ -161,6 +161,7 @@ static const NSString *ItemStatusContext;
     self.bottomView.hidden = !self.playbackMode;
     self.descriptionLabel.hidden = self.playbackMode;
     self.restoreButton.hidden = !self.playbackMode || [self hasRemovedWatermark];
+    self.shuffleButton.hidden = self.playbackMode;
 }
 
 - (void)syncBottomConstraints
@@ -344,6 +345,38 @@ static const NSString *ItemStatusContext;
     [SVProgressHUD showWithStatus:@"Restoring..."];
     
     [[MKStoreKit sharedKit] restorePurchases];
+}
+
+- (IBAction)shuffle:(id)sender
+{
+    while (self.times.count <= 0) {
+        
+        BLBleep *currentBleep;
+        
+        for (int x = 0; x < CMTimeGetSeconds(self.videoPlayerItem.asset.duration); x++) {
+            
+            if (currentBleep) {
+                if ([self randomBoolWithYesPercentage:70]) {
+                    currentBleep.end = CMTimeMake(x, 1);
+                    [self.times addObject:currentBleep];
+                    currentBleep = nil;
+                }
+            }
+            else {
+                if ([self randomBoolWithYesPercentage:x == 0 ? 30 : 60]) {
+                    currentBleep = [BLBleep new];
+                    currentBleep.beginning = CMTimeMake(x, 1);
+                }
+            }
+        }
+    }
+    
+    [self constructCensoredVideo];
+}
+
+- (BOOL)randomBoolWithYesPercentage:(int)percent
+{
+    return arc4random_uniform(100) < percent;
 }
 
 #pragma mark - Notifications

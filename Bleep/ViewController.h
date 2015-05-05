@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet BLRedButton *watermarkButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *restoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
 
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 
