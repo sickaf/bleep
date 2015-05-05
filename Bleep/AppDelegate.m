@@ -20,15 +20,6 @@
 {
     [[MKStoreKit sharedKit] startProductRequest];
     
-    // Print which products are available
-    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductsAvailableNotification
-                                                      object:nil
-                                                       queue:[[NSOperationQueue alloc] init]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      
-                                                      NSLog(@"Products available: %@", [[MKStoreKit sharedKit] availableProducts]);
-                                                  }];
-    
     return YES;
 }
 

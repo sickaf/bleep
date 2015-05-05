@@ -12,7 +12,6 @@
 #define kVideoWidth 640
 
 NSString *const tracksKey = @"tracks";
-NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 @interface BLMovieRenderer ()
 
@@ -113,7 +112,6 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             [parentLayer addSublayer:videoLayer];
             watermarkLayer.position = CGPointMake(self.videoComposition.renderSize.width/6, self.videoComposition.renderSize.height/16);
             [parentLayer addSublayer:watermarkLayer];
-            NSLog(@"%@",NSStringFromCGPoint(watermarkLayer.position));
             self.videoComposition.animationTool = [AVVideoCompositionCoreAnimationTool videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
             
             // Create immutable copy of our composition
@@ -157,19 +155,6 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             }];
         }];
     });
-}
-
-#pragma mark - Utilities
-
-- (NSString *)randomStringWithLength: (int) len {
-    
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    
-    for (int i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex:arc4random_uniform((u_int32_t)[letters length])]];
-    }
-    
-    return randomString;
 }
 
 @end
