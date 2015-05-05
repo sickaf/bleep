@@ -146,6 +146,7 @@ static const NSString *ItemStatusContext;
         if (!self.playbackMode) {
             self.bleepButton.enabled = YES;
             self.playButton.hidden = NO;
+            self.shuffleButton.enabled = YES;
         }
         else {
             self.bleepButton.enabled = NO;
@@ -286,6 +287,7 @@ static const NSString *ItemStatusContext;
     [self.videoPlayer play];
     
     self.playButton.hidden = YES;
+    self.shuffleButton.enabled = NO;
 }
 
 - (IBAction)back:(id)sender
