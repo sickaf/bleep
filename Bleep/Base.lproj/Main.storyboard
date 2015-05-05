@@ -680,8 +680,8 @@
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="c2C-8e-Nkv" secondAttribute="centerY" id="BtU-mu-7dP"/>
                                     <constraint firstAttribute="centerY" secondItem="YMC-8G-aJX" secondAttribute="centerY" id="CEF-QZ-zOv"/>
-                                    <constraint firstAttribute="trailing" secondItem="YMC-8G-aJX" secondAttribute="trailing" constant="52" id="Ckh-sc-AMF"/>
-                                    <constraint firstItem="YMC-8G-aJX" firstAttribute="leading" secondItem="b9U-Vr-AfD" secondAttribute="leading" constant="53" id="DiY-Xz-gcg"/>
+                                    <constraint firstAttribute="trailing" secondItem="YMC-8G-aJX" secondAttribute="trailing" constant="30" id="Ckh-sc-AMF"/>
+                                    <constraint firstItem="YMC-8G-aJX" firstAttribute="leading" secondItem="b9U-Vr-AfD" secondAttribute="leading" constant="30" id="DiY-Xz-gcg"/>
                                     <constraint firstItem="c2C-8e-Nkv" firstAttribute="height" secondItem="b9U-Vr-AfD" secondAttribute="height" multiplier="0.7" id="VMl-D3-Kvo"/>
                                     <constraint firstItem="c2C-8e-Nkv" firstAttribute="width" secondItem="b9U-Vr-AfD" secondAttribute="width" constant="-60" id="onl-yF-b2b"/>
                                     <constraint firstAttribute="centerX" secondItem="c2C-8e-Nkv" secondAttribute="centerX" id="yhb-F9-GXu"/>

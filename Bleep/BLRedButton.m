@@ -21,7 +21,7 @@
 
 - (void)setup
 {
-    UIFont *font = [UIFont fontWithName:@"Moon-Bold" size:18];
+    UIFont *font = [UIFont fontWithName:@"Moon-Bold" size:16];
     [self.titleLabel setFont:font];
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
