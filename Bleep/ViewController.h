@@ -14,6 +14,7 @@
 #import "BLSiezureView.h"
 #import "BLSiezureLabel.h"
 #import "BLRedButton.h"
+#import "MKStoreKit.h"
 
 @interface ViewController : UIViewController
 
@@ -24,11 +25,15 @@
 @property (weak, nonatomic) IBOutlet BLSiezureLabel *topLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet BLSiezureLabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet BLRedButton *saveButton;
+@property (weak, nonatomic) IBOutlet BLRedButton *watermarkButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 
 @property (nonatomic) AVAudioPlayer *soundPlayer;
 
 @property (nonatomic) AVAsset *assetToLoad;
+@property (nonatomic) AVAsset *originalAsset;
 @property (nonatomic, strong) NSURL *assetURLToLoad;
 
 @property (nonatomic, assign) BOOL playbackMode;

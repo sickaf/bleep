@@ -29,6 +29,9 @@
 		7FF712A81AF0601500B898B9 /* Moon-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF712A71AF0601500B898B9 /* Moon-Bold.otf */; };
 		7FF712AB1AF073D300B898B9 /* BLRedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712AA1AF073D300B898B9 /* BLRedButton.m */; };
 		7FF712AE1AF0CCB600B898B9 /* BLInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712AD1AF0CCB600B898B9 /* BLInfoViewController.m */; };
+		7FF712B21AF8135300B898B9 /* MKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF712B11AF8135300B898B9 /* MKStoreKit.m */; };
+		7FF712B41AF8148700B898B9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF712B31AF8148700B898B9 /* StoreKit.framework */; };
+		7FF712B61AF8278800B898B9 /* MKStoreKitConfigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF712B51AF8278800B898B9 /* MKStoreKitConfigs.plist */; };
 		7FFA383D1AE61F2A00274033 /* BLStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA383C1AE61F2A00274033 /* BLStartViewController.m */; };
 		C11ABF1E343EAAD95BBCF7EF /* libPods-Bleep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,10 @@
 		7FF712AA1AF073D300B898B9 /* BLRedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLRedButton.m; sourceTree = "<group>"; };
 		7FF712AC1AF0CCB600B898B9 /* BLInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLInfoViewController.h; sourceTree = "<group>"; };
 		7FF712AD1AF0CCB600B898B9 /* BLInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLInfoViewController.m; sourceTree = "<group>"; };
+		7FF712B01AF8135300B898B9 /* MKStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKit.h; sourceTree = "<group>"; };
+		7FF712B11AF8135300B898B9 /* MKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreKit.m; sourceTree = "<group>"; };
+		7FF712B31AF8148700B898B9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7FF712B51AF8278800B898B9 /* MKStoreKitConfigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKStoreKitConfigs.plist; sourceTree = "<group>"; };
 		7FFA383B1AE61F2A00274033 /* BLStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLStartViewController.h; sourceTree = "<group>"; };
 		7FFA383C1AE61F2A00274033 /* BLStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLStartViewController.m; sourceTree = "<group>"; };
 		ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bleep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF712B41AF8148700B898B9 /* StoreKit.framework in Frameworks */,
 				7FB533291AE06E8100C4743A /* QuartzCore.framework in Frameworks */,
 				7FB533271AE06E7C00C4743A /* MobileCoreServices.framework in Frameworks */,
 				7FB533251AE06E7700C4743A /* MediaPlayer.framework in Frameworks */,
@@ -202,6 +210,8 @@
 		7FB5332A1AE06E8E00C4743A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FF712B31AF8148700B898B9 /* StoreKit.framework */,
+				7FF712AF1AF8134300B898B9 /* MKStoreKit */,
 				7FB533281AE06E8100C4743A /* QuartzCore.framework */,
 				7FB533261AE06E7C00C4743A /* MobileCoreServices.framework */,
 				7FB533241AE06E7700C4743A /* MediaPlayer.framework */,
@@ -211,6 +221,16 @@
 				ED58F68F778BEC0D3B357C24 /* libPods-Bleep.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FF712AF1AF8134300B898B9 /* MKStoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				7FF712B51AF8278800B898B9 /* MKStoreKitConfigs.plist */,
+				7FF712B01AF8135300B898B9 /* MKStoreKit.h */,
+				7FF712B11AF8135300B898B9 /* MKStoreKit.m */,
+			);
+			name = MKStoreKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +319,7 @@
 				7FB5333D1AE086FE00C4743A /* censor.wav in Resources */,
 				7FF712A81AF0601500B898B9 /* Moon-Bold.otf in Resources */,
 				7FB533041AE06AF600C4743A /* Main.storyboard in Resources */,
+				7FF712B61AF8278800B898B9 /* MKStoreKitConfigs.plist in Resources */,
 				7FB533091AE06AF600C4743A /* LaunchScreen.xib in Resources */,
 				7FB533061AE06AF600C4743A /* Images.xcassets in Resources */,
 			);
@@ -355,6 +376,7 @@
 				7FB533011AE06AF600C4743A /* ViewController.m in Sources */,
 				7FF712A31AE9C86200B898B9 /* BLSiezureView.m in Sources */,
 				7FF712AB1AF073D300B898B9 /* BLRedButton.m in Sources */,
+				7FF712B21AF8135300B898B9 /* MKStoreKit.m in Sources */,
 				7FB532FE1AE06AF600C4743A /* AppDelegate.m in Sources */,
 				7FB532FB1AE06AF600C4743A /* main.m in Sources */,
 				7FF712A61AE9CEFA00B898B9 /* BLSiezureLabel.m in Sources */,

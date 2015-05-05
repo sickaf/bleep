@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Moon-Bold.otf">
@@ -536,69 +537,111 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-Bp-alY" customClass="BLRedButton">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2C-8e-Nkv">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-Bp-alY" customClass="BLRedButton">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <state key="normal" title="Save Video">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="save:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h0U-tr-Pea"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3q-NC-u6p" customClass="BLRedButton">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <state key="normal" title="Remove Watermark ($1.99)">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeWatermark:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M8B-x1-ksI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="58" id="Xhi-pJ-xxO"/>
+                                            <constraint firstAttribute="centerX" secondItem="u3q-NC-u6p" secondAttribute="centerX" constant="-0.5" id="C2z-BY-RuG"/>
+                                            <constraint firstItem="u3q-NC-u6p" firstAttribute="height" secondItem="c2C-8e-Nkv" secondAttribute="height" multiplier="0.45" id="P0L-LC-7KK"/>
+                                            <constraint firstItem="u3q-NC-u6p" firstAttribute="width" secondItem="c2C-8e-Nkv" secondAttribute="width" id="P5k-c6-8eo"/>
+                                            <constraint firstItem="GVE-Bp-alY" firstAttribute="width" secondItem="c2C-8e-Nkv" secondAttribute="width" id="RYw-hk-jfE"/>
+                                            <constraint firstItem="u3q-NC-u6p" firstAttribute="top" secondItem="c2C-8e-Nkv" secondAttribute="top" id="SXU-yh-fVd"/>
+                                            <constraint firstAttribute="centerX" secondItem="GVE-Bp-alY" secondAttribute="centerX" constant="-0.5" id="WGW-Uu-JUz"/>
+                                            <constraint firstAttribute="bottom" secondItem="GVE-Bp-alY" secondAttribute="bottom" id="Zwn-CY-Agn"/>
+                                            <constraint firstItem="GVE-Bp-alY" firstAttribute="height" secondItem="c2C-8e-Nkv" secondAttribute="height" multiplier="0.45" id="oMc-3P-SSV"/>
                                         </constraints>
-                                        <state key="normal" title="Save Video">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="GVE-Bp-alY"/>
+                                                <exclude reference="u3q-NC-u6p"/>
+                                            </mask>
                                             <mask key="constraints">
-                                                <exclude reference="Xhi-pJ-xxO"/>
+                                                <exclude reference="C2z-BY-RuG"/>
+                                                <exclude reference="P0L-LC-7KK"/>
+                                                <exclude reference="P5k-c6-8eo"/>
+                                                <exclude reference="SXU-yh-fVd"/>
+                                                <exclude reference="RYw-hk-jfE"/>
+                                                <exclude reference="WGW-Uu-JUz"/>
+                                                <exclude reference="Zwn-CY-Agn"/>
+                                                <exclude reference="oMc-3P-SSV"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="GVE-Bp-alY"/>
+                                                <include reference="u3q-NC-u6p"/>
+                                            </mask>
                                             <mask key="constraints">
-                                                <include reference="Xhi-pJ-xxO"/>
+                                                <include reference="C2z-BY-RuG"/>
+                                                <include reference="P0L-LC-7KK"/>
+                                                <include reference="P5k-c6-8eo"/>
+                                                <include reference="SXU-yh-fVd"/>
+                                                <include reference="RYw-hk-jfE"/>
+                                                <include reference="WGW-Uu-JUz"/>
+                                                <include reference="Zwn-CY-Agn"/>
+                                                <include reference="oMc-3P-SSV"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="save:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h0U-tr-Pea"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="GVE-Bp-alY" firstAttribute="centerY" secondItem="YMC-8G-aJX" secondAttribute="centerY" id="8oA-al-Mwb"/>
+                                    <constraint firstAttribute="centerY" secondItem="c2C-8e-Nkv" secondAttribute="centerY" id="BtU-mu-7dP"/>
                                     <constraint firstAttribute="centerY" secondItem="YMC-8G-aJX" secondAttribute="centerY" id="CEF-QZ-zOv"/>
                                     <constraint firstAttribute="trailing" secondItem="YMC-8G-aJX" secondAttribute="trailing" constant="52" id="Ckh-sc-AMF"/>
                                     <constraint firstItem="YMC-8G-aJX" firstAttribute="leading" secondItem="b9U-Vr-AfD" secondAttribute="leading" constant="53" id="DiY-Xz-gcg"/>
-                                    <constraint firstItem="GVE-Bp-alY" firstAttribute="leading" secondItem="b9U-Vr-AfD" secondAttribute="leading" constant="43" id="GDh-3f-yR8"/>
-                                    <constraint firstAttribute="centerX" secondItem="YMC-8G-aJX" secondAttribute="centerX" constant="-0.5" id="fEb-E2-YEt">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="GVE-Bp-alY" secondAttribute="trailing" constant="42" id="sLa-8H-Ayt"/>
+                                    <constraint firstItem="c2C-8e-Nkv" firstAttribute="height" secondItem="b9U-Vr-AfD" secondAttribute="height" multiplier="0.7" id="VMl-D3-Kvo"/>
+                                    <constraint firstItem="c2C-8e-Nkv" firstAttribute="width" secondItem="b9U-Vr-AfD" secondAttribute="width" constant="-60" id="onl-yF-b2b"/>
+                                    <constraint firstAttribute="centerX" secondItem="c2C-8e-Nkv" secondAttribute="centerX" id="yhb-F9-GXu"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="YMC-8G-aJX"/>
-                                        <exclude reference="GVE-Bp-alY"/>
+                                        <exclude reference="c2C-8e-Nkv"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="8oA-al-Mwb"/>
-                                        <exclude reference="GDh-3f-yR8"/>
-                                        <exclude reference="sLa-8H-Ayt"/>
+                                        <exclude reference="BtU-mu-7dP"/>
+                                        <exclude reference="VMl-D3-Kvo"/>
+                                        <exclude reference="onl-yF-b2b"/>
+                                        <exclude reference="yhb-F9-GXu"/>
                                         <exclude reference="CEF-QZ-zOv"/>
                                         <exclude reference="Ckh-sc-AMF"/>
                                         <exclude reference="DiY-Xz-gcg"/>
-                                        <exclude reference="fEb-E2-YEt"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="YMC-8G-aJX"/>
-                                        <include reference="GVE-Bp-alY"/>
+                                        <include reference="c2C-8e-Nkv"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="8oA-al-Mwb"/>
-                                        <include reference="GDh-3f-yR8"/>
-                                        <include reference="sLa-8H-Ayt"/>
+                                        <include reference="BtU-mu-7dP"/>
+                                        <include reference="VMl-D3-Kvo"/>
+                                        <include reference="onl-yF-b2b"/>
+                                        <include reference="yhb-F9-GXu"/>
                                         <include reference="CEF-QZ-zOv"/>
                                         <include reference="Ckh-sc-AMF"/>
                                         <include reference="DiY-Xz-gcg"/>
-                                        <exclude reference="fEb-E2-YEt"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -669,11 +712,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bleepButton" destination="tXu-iA-LCV" id="ZgW-h8-1IF"/>
+                        <outlet property="bottomSpaceConstraint" destination="Zwn-CY-Agn" id="Hgl-Dy-2iC"/>
+                        <outlet property="bottomView" destination="c2C-8e-Nkv" id="5a5-WK-4Tp"/>
                         <outlet property="descriptionLabel" destination="YMC-8G-aJX" id="L3S-f2-lKf"/>
                         <outlet property="playButton" destination="QCO-ku-A0y" id="gMd-EJ-ecS"/>
-                        <outlet property="saveButton" destination="GVE-Bp-alY" id="pFL-Af-zFE"/>
+                        <outlet property="saveButton" destination="GVE-Bp-alY" id="GDD-Ky-GQ3"/>
                         <outlet property="topLabel" destination="uPd-iJ-V5W" id="LVA-Kr-5Nr"/>
                         <outlet property="videoPlayerView" destination="KDu-lB-6oL" id="hop-Tn-Vli"/>
+                        <outlet property="watermarkButton" destination="u3q-NC-u6p" id="eve-hT-8fg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

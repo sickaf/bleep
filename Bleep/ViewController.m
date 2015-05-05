@@ -13,7 +13,9 @@
 
 static const NSString *ItemStatusContext;
 
-@interface ViewController ()
+@interface ViewController () {
+    BOOL _watermark;
+}
 
 @property (nonatomic, strong) NSMutableArray *times;
 @property (nonatomic, strong) BLBleep *currentBleep;
@@ -26,8 +28,12 @@ static const NSString *ItemStatusContext;
 {
     [super viewDidLoad];
     
+    _watermark = YES;
+    
     if (!self.playbackMode) {
-        self.times = [NSMutableArray new];
+        if (!self.times) {
+            self.times = [NSMutableArray new];
+        }
         [self setupCensorPlayer];
     }
     else {
@@ -37,6 +43,7 @@ static const NSString *ItemStatusContext;
     
     [self loadAppropriateAsset];
     [self syncUI];
+    [self setupNotifications];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,6 +53,19 @@ static const NSString *ItemStatusContext;
     self.topLabel.shouldColor = YES;
     
     [self reset];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    // align the save button if we've removed the watermark button
+    [self syncBottomConstraints];
 }
 
 - (void)setupCensorPlayer
@@ -67,9 +87,44 @@ static const NSString *ItemStatusContext;
     }
 }
 
+- (void)setupNotifications
+{
+    __weak id weakSelf = self;
+    // Listen for IAP notification
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchasedNotification
+                                                      object:nil
+                                                       queue:[[NSOperationQueue alloc] init]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      __strong id strongSelf = weakSelf;
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [SVProgressHUD showSuccessWithStatus:@"Removed!"];
+                                                      });
+                                                      [strongSelf watermarkRemoved];
+                                                  }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchaseFailedNotification
+                                                      object:nil
+                                                       queue:[[NSOperationQueue alloc] init]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [SVProgressHUD dismiss];
+                                                      });
+                                                  }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductPurchaseDeferredNotification
+                                                      object:nil
+                                                       queue:[[NSOperationQueue alloc] init]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [SVProgressHUD dismiss];
+                                                      });
+                                                  }];
+}
+
 - (void)dealloc
 {
     [self.videoPlayerItem removeObserver:self forKeyPath:@"status" context:&ItemStatusContext];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseFailedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMKStoreKitProductPurchaseDeferredNotification object:nil];
 }
 
 #pragma mark - Methods
@@ -93,8 +148,19 @@ static const NSString *ItemStatusContext;
         self.playButton.hidden = YES;
     }
     
-    self.saveButton.hidden = !self.playbackMode;
+    self.bottomView.hidden = !self.playbackMode;
     self.descriptionLabel.hidden = self.playbackMode;
+}
+
+- (void)syncBottomConstraints
+{
+    if ([[MKStoreKit sharedKit] isProductPurchased:@"com.sick.af.removewatermark"]) {
+        self.watermarkButton.hidden = YES;
+        [self.bottomView removeConstraint:self.bottomSpaceConstraint];
+        NSLayoutConstraint *newC = [NSLayoutConstraint constraintWithItem:self.bottomView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.saveButton attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+        [self.bottomView addConstraint:newC];
+        [self.bottomView layoutIfNeeded];
+    }
 }
 
 - (void)loadAssetFromURL:(NSURL *)assetURL
@@ -158,15 +224,28 @@ static const NSString *ItemStatusContext;
     [SVProgressHUD showWithStatus:@"Loading..."];
     
     BLMovieRenderer *movieRenderer = [BLMovieRenderer new];
-    [movieRenderer renderVideoAsset:self.videoPlayerItem.asset bleepInfo:[self.times mutableCopy] completion:^(NSURL *assetURL) {
-        [SVProgressHUD dismiss];
-        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        ViewController *new = [mainSB instantiateViewControllerWithIdentifier:@"main"];
-        new.assetURLToLoad = assetURL;
-        new.playbackMode = YES;
-        [self.navigationController pushViewController:new animated:YES];
-        
-        [self.times removeAllObjects];
+    if ([[MKStoreKit sharedKit] isProductPurchased:@"com.sick.af.removewatermark"]) {
+        movieRenderer.hasWatermark = NO;
+    }
+    
+    __weak id weakSelf = self;
+    [movieRenderer renderVideoAsset:self.originalAsset ?: self.videoPlayerItem.asset bleepInfo:[self.times mutableCopy] completion:^(NSURL *assetURL) {
+        __strong ViewController *strongSelf = weakSelf;
+        if (strongSelf.playbackMode) {
+            [strongSelf loadAssetFromURL:assetURL];
+            [SVProgressHUD dismiss];
+        }
+        else {
+            [SVProgressHUD dismiss];
+            UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            ViewController *new = [mainSB instantiateViewControllerWithIdentifier:@"main"];
+            new.assetURLToLoad = assetURL;
+            new.originalAsset = self.videoPlayerItem.asset;
+            new.playbackMode = YES;
+            new.times = [strongSelf.times copy];
+            [strongSelf.navigationController pushViewController:new animated:YES];
+            [strongSelf.times removeAllObjects];
+        }
     }];
 }
 
@@ -236,6 +315,13 @@ static const NSString *ItemStatusContext;
     }
 }
 
+- (IBAction)removeWatermark:(id)sender
+{
+    [SVProgressHUD showWithStatus:@"Removing..."];
+    
+    [[MKStoreKit sharedKit] initiatePaymentRequestForProductWithIdentifier:@"com.sick.af.removewatermark"];
+}
+
 #pragma mark - Notifications
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
@@ -263,6 +349,14 @@ static const NSString *ItemStatusContext;
         [self.videoPlayer seekToTime:kCMTimeZero];
         [self play:nil];
     }
+}
+
+- (void)watermarkRemoved
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self constructCensoredVideo];
+        [self syncBottomConstraints];
+    });
 }
 
 @end
